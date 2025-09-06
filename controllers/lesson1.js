@@ -1,3 +1,7 @@
+const ivonRoute = (req, res) => {
+    res.send("Ivon Mayorga")
+};
+
 const ianRoute = (req, res) => {
     res.send("Ian Encarnacion")
 };
@@ -9,4 +13,5 @@ const loganRoute = (req, res) => {
 module.exports = {
     ianRoute,
     loganRoute,
+    ivonRoute,
 };

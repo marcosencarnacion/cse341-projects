@@ -20,6 +20,7 @@
   "homepage": "https://github.com/marcosencarnacion/cse341-projects#readme",
   "dependencies": {
     "express": "^5.1.0",
+    "mongodb": "^6.19.0",
     "nodemon": "^3.1.10",
     "save-dev": "^0.0.1-security"
   }

@@ -1,10 +1,23 @@
 const express = require('express');
+const { connectToMongo } = require('./db/connection');
 const app = express();
-const lesson1Controller = require('./controllers/lesson1');
 
-const port = 3000;
+app.use(express.json());
 
-app.use('/', require('./routes/index'));
+async function startServer() {
+  try {
+    await connectToMongo();
+    console.log("🚀 Server is ready to use MongoDB");
 
-app.listen(process.env.port || port);
-console.log('Web Server is listening at port '+ (process.env.port || port));
+    app.get('/', (req, res) => {
+      res.send('MongoDB connected successfully!');
+    });
+
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (err) {
+    console.error('Error starting server:', err);
+  }
+}
+
+startServer();
